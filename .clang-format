@@ -1,0 +1,6 @@
+BasedOnStyle: Chromium
+AccessModifierOffset: -4
+ConstructorInitializerIndentWidth:	4
+ContinuationIndentWidth:	4
+IndentWidth:	4
+TabWidth:	4

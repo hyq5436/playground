@@ -21,3 +21,4 @@ include_directories("${PROJECT_SOURCE_DIR}/includes")
 
 add_subdirectory(chapter01)
 add_subdirectory(chapter02)
+add_subdirectory(chapter03)

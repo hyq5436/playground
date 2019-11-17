@@ -22,6 +22,20 @@ private:
     char name[10] = "Fuck";
     char* m_BufferPtr;
 };
+
+class Base {
+public:
+    Base() {}
+    virtual ~Base() { std::cout << "destruct base" << std::endl;
+    }
+};
+
+class Derived : public Base {
+public:
+    Derived() {}
+    ~Derived() { std::cout << "destruct derived" << std::endl;
+    }
+};
 int main()
 {
     Fuck* pFuck = new Fuck();
@@ -33,6 +47,11 @@ int main()
     // 正常释放说明pBuffer没有被释放
     delete []pBuffer;
     std::cout << "Hello World!\n"; 
+
+    std::shared_ptr<Derived> pDerived = std::make_shared<Derived>();
+    //std::shared_ptr<Base> pBase = pDerived;
+    std::shared_ptr<void> pBase = pDerived;
+    //Derived derived;
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu

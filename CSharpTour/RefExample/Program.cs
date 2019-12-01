@@ -14,10 +14,10 @@ namespace RefExample
         {
             int i = 1;
             int j = 2;
-            int k;
+            //int k;
             Swap(ref i, ref j);
             Console.WriteLine("{0} {1}", i, j);
-            Console.WriteLine(k);
+            //Console.WriteLine(k);
         }
     }
 }

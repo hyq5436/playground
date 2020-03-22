@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.1022
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "LoadingDemo", "LoadingDemo\LoadingDemo.vcxproj", "{89C36337-43C7-4C43-A4D5-DBB453402B80}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "LoadingWidget", "LoadingWidget\LoadingWidget.vcxproj", "{F57A5FA8-A88C-48CB-8D0A-782BBAB02000}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{89C36337-43C7-4C43-A4D5-DBB453402B80}.Debug|x86.ActiveCfg = Debug|Win32
+		{89C36337-43C7-4C43-A4D5-DBB453402B80}.Debug|x86.Build.0 = Debug|Win32
+		{89C36337-43C7-4C43-A4D5-DBB453402B80}.Release|x86.ActiveCfg = Release|Win32
+		{89C36337-43C7-4C43-A4D5-DBB453402B80}.Release|x86.Build.0 = Release|Win32
+		{F57A5FA8-A88C-48CB-8D0A-782BBAB02000}.Debug|x86.ActiveCfg = Debug|Win32
+		{F57A5FA8-A88C-48CB-8D0A-782BBAB02000}.Debug|x86.Build.0 = Debug|Win32
+		{F57A5FA8-A88C-48CB-8D0A-782BBAB02000}.Release|x86.ActiveCfg = Release|Win32
+		{F57A5FA8-A88C-48CB-8D0A-782BBAB02000}.Release|x86.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {73A014DC-A0FC-4FD6-BCAA-D9671A3FF071}
+		Qt5Version = 5_12_7_msvc2017
+	EndGlobalSection
+EndGlobal

@@ -80,16 +80,24 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="CommonFun.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="MeetingListView.cpp" />
+    <ClCompile Include="MeetingListViewDelegate.cpp" />
     <ClCompile Include="MeetingManager.cpp" />
     <ClCompile Include="UnderlineTabBar.cpp" />
     <ClCompile Include="UnderlineTabWidget.cpp" />
+    <ClCompile Include="VoiceLaunchWidget.cpp" />
+    <ClCompile Include="VoicePanel.cpp" />
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="MeetingManager.h" />
   </ItemGroup>
   <ItemGroup>
+    <QtUic Include="MeetingListView.ui" />
     <QtUic Include="MeetingManager.ui" />
+    <QtUic Include="VoiceLaunchWidget.ui" />
+    <QtUic Include="VoicePanel.ui" />
   </ItemGroup>
   <ItemGroup>
     <QtRcc Include="MeetingManager.qrc" />
@@ -99,6 +107,21 @@
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="UnderlineTabWidget.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <QtMoc Include="CommonFun.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <QtMoc Include="VoicePanel.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <QtMoc Include="VoiceLaunchWidget.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <QtMoc Include="MeetingListView.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <QtMoc Include="MeetingListViewDelegate.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Condition="Exists('$(QtMsBuild)\qt.targets')">

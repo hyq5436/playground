@@ -1,5 +1,4 @@
 ﻿#include "UnderlineTabBar.h"
-#include "ui_UnderlineTabBar.h"
 
 #include <QStyleOptionTab>
 #include <QStylePainter>

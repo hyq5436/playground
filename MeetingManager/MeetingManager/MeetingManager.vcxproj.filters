@@ -37,6 +37,21 @@
     <ClCompile Include="UnderlineTabWidget.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="CommonFun.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="VoicePanel.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="VoiceLaunchWidget.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MeetingListView.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MeetingListViewDelegate.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="MeetingManager.h">
@@ -48,9 +63,33 @@
     <QtMoc Include="UnderlineTabWidget.h">
       <Filter>Header Files</Filter>
     </QtMoc>
+    <QtMoc Include="CommonFun.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="VoicePanel.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="VoiceLaunchWidget.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="MeetingListView.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="MeetingListViewDelegate.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
   </ItemGroup>
   <ItemGroup>
     <QtUic Include="MeetingManager.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="VoicePanel.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="VoiceLaunchWidget.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="MeetingListView.ui">
       <Filter>Form Files</Filter>
     </QtUic>
   </ItemGroup>

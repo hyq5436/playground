@@ -37,6 +37,9 @@
     <ClCompile Include="CommonFun.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="HeadAndStatusWidget.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="PushButtonWithMenuDemo.h">
@@ -46,6 +49,9 @@
       <Filter>Header Files</Filter>
     </QtMoc>
     <QtMoc Include="CommonFun.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="HeadAndStatusWidget.h">
       <Filter>Header Files</Filter>
     </QtMoc>
   </ItemGroup>

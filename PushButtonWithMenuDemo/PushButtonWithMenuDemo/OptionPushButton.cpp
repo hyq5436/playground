@@ -1,4 +1,6 @@
-﻿#include "OptionPushButton.h"
+﻿#pragma execution_character_set("utf-8")
+
+#include "OptionPushButton.h"
 #include <QEvent>
 #include <QMenu>
 #include <QMouseEvent>

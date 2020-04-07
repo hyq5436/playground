@@ -16,14 +16,36 @@
   <widget class="OptionPushButton" name="pushButton">
    <property name="geometry">
     <rect>
-     <x>230</x>
-     <y>170</y>
+     <x>200</x>
+     <y>90</y>
      <width>141</width>
      <height>41</height>
     </rect>
    </property>
    <property name="text">
     <string>PushButton</string>
+   </property>
+  </widget>
+  <widget class="HeadAndStatusWidget" name="widget" native="true">
+   <property name="geometry">
+    <rect>
+     <x>170</x>
+     <y>170</y>
+     <width>200</width>
+     <height>200</height>
+    </rect>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>200</width>
+     <height>200</height>
+    </size>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>200</width>
+     <height>200</height>
+    </size>
    </property>
   </widget>
  </widget>
@@ -33,6 +55,12 @@
    <class>OptionPushButton</class>
    <extends>QPushButton</extends>
    <header>OptionPushButton.h</header>
+  </customwidget>
+  <customwidget>
+   <class>HeadAndStatusWidget</class>
+   <extends>QWidget</extends>
+   <header>HeadAndStatusWidget.h</header>
+   <container>1</container>
   </customwidget>
  </customwidgets>
  <resources>

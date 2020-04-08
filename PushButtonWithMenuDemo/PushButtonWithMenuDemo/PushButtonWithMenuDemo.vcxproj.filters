@@ -40,6 +40,9 @@
     <ClCompile Include="HeadAndStatusWidget.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="LiveButton.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="PushButtonWithMenuDemo.h">
@@ -52,6 +55,9 @@
       <Filter>Header Files</Filter>
     </QtMoc>
     <QtMoc Include="HeadAndStatusWidget.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="LiveButton.h">
       <Filter>Header Files</Filter>
     </QtMoc>
   </ItemGroup>

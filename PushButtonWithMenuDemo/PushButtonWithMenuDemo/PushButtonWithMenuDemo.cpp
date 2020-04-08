@@ -7,6 +7,7 @@ PushButtonWithMenuDemo::PushButtonWithMenuDemo(QWidget *parent)
     : QDialog(parent)
 {
     ui.setupUi(this);
+    setStyleSheet("background-color: #37383e;");
     QStringList qss;
     qss.append(QString("QPushButton{border-style:none;padding:5px;border-radius:3px;color:%1;background:%2;%3}")
         .arg(QString("#F7F7F7"))

@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>600</width>
-    <height>400</height>
+    <width>612</width>
+    <height>504</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -17,7 +17,7 @@
    <property name="geometry">
     <rect>
      <x>200</x>
-     <y>90</y>
+     <y>10</y>
      <width>141</width>
      <height>41</height>
     </rect>
@@ -30,7 +30,7 @@
    <property name="geometry">
     <rect>
      <x>170</x>
-     <y>170</y>
+     <y>50</y>
      <width>200</width>
      <height>200</height>
     </rect>
@@ -48,6 +48,19 @@
     </size>
    </property>
   </widget>
+  <widget class="LiveButton" name="pushButton_2">
+   <property name="geometry">
+    <rect>
+     <x>170</x>
+     <y>250</y>
+     <width>221</width>
+     <height>201</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>PushButton</string>
+   </property>
+  </widget>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
  <customwidgets>
@@ -61,6 +74,11 @@
    <extends>QWidget</extends>
    <header>HeadAndStatusWidget.h</header>
    <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>LiveButton</class>
+   <extends>QPushButton</extends>
+   <header>LiveButton.h</header>
   </customwidget>
  </customwidgets>
  <resources>

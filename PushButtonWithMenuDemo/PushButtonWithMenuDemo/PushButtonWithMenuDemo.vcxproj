@@ -82,6 +82,7 @@
   <ItemGroup>
     <ClCompile Include="CommonFun.cpp" />
     <ClCompile Include="HeadAndStatusWidget.cpp" />
+    <ClCompile Include="LiveButton.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="OptionPushButton.cpp" />
     <ClCompile Include="PushButtonWithMenuDemo.cpp" />
@@ -103,6 +104,9 @@
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="HeadAndStatusWidget.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <QtMoc Include="LiveButton.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Condition="Exists('$(QtMsBuild)\qt.targets')">

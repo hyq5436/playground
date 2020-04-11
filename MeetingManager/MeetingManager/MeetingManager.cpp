@@ -90,5 +90,6 @@ void MeetingManager::addMeetingType() {
 	
     auto* pButton = new QPushButton(ui.tabWidget);
     pLayout->addWidget(pButton);
-    ui.tabWidget->setCornerWidget(pButtonContainer);
+    // TabBar 按钮
+    //ui.tabWidget->setCornerWidget(pButtonContainer);
 }

@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.1000
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "AutoHideMenuBarDemo", "AutoHideMenuBarDemo\AutoHideMenuBarDemo.vcxproj", "{B0654E69-E071-4361-AAD1-980DE054C94A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B0654E69-E071-4361-AAD1-980DE054C94A}.Debug|x86.ActiveCfg = Debug|Win32
+		{B0654E69-E071-4361-AAD1-980DE054C94A}.Debug|x86.Build.0 = Debug|Win32
+		{B0654E69-E071-4361-AAD1-980DE054C94A}.Release|x86.ActiveCfg = Release|Win32
+		{B0654E69-E071-4361-AAD1-980DE054C94A}.Release|x86.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0B40003E-5293-49E5-AD67-90F928010BFE}
+	EndGlobalSection
+EndGlobal

@@ -43,6 +43,18 @@
     <ClCompile Include="LiveButton.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="LiveMoreButton.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="HostMicStatusWidget.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="LiveFloatWindow.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FloatWindowTopLayer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="PushButtonWithMenuDemo.h">
@@ -60,9 +72,30 @@
     <QtMoc Include="LiveButton.h">
       <Filter>Header Files</Filter>
     </QtMoc>
+    <QtMoc Include="LiveMoreButton.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="HostMicStatusWidget.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="LiveFloatWindow.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="FloatWindowTopLayer.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
   </ItemGroup>
   <ItemGroup>
     <QtUic Include="PushButtonWithMenuDemo.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="HostMicStatusWidget.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="LiveFloatWindow.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="FloatWindowTopLayer.ui">
       <Filter>Form Files</Filter>
     </QtUic>
   </ItemGroup>

@@ -43,11 +43,11 @@
   </ImportGroup>
   <PropertyGroup Label="QtSettings" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <QtInstall>5_12_7_msvc2017</QtInstall>
-    <QtModules>core;gui;widgets</QtModules>
+    <QtModules>core;gui;multimedia;multimediawidgets;widgets</QtModules>
   </PropertyGroup>
   <PropertyGroup Label="QtSettings" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <QtInstall>5_12_7_msvc2017</QtInstall>
-    <QtModules>core;gui;widgets</QtModules>
+    <QtModules>core;gui;multimedia;multimediawidgets;widgets</QtModules>
   </PropertyGroup>
   <ImportGroup Condition="Exists('$(QtMsBuild)\qt.props')">
     <Import Project="$(QtMsBuild)\qt.props" />
@@ -81,8 +81,12 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="CommonFun.cpp" />
+    <ClCompile Include="FloatWindowTopLayer.cpp" />
     <ClCompile Include="HeadAndStatusWidget.cpp" />
+    <ClCompile Include="HostMicStatusWidget.cpp" />
     <ClCompile Include="LiveButton.cpp" />
+    <ClCompile Include="LiveFloatWindow.cpp" />
+    <ClCompile Include="LiveMoreButton.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="OptionPushButton.cpp" />
     <ClCompile Include="PushButtonWithMenuDemo.cpp" />
@@ -91,6 +95,9 @@
     <QtMoc Include="PushButtonWithMenuDemo.h" />
   </ItemGroup>
   <ItemGroup>
+    <QtUic Include="FloatWindowTopLayer.ui" />
+    <QtUic Include="HostMicStatusWidget.ui" />
+    <QtUic Include="LiveFloatWindow.ui" />
     <QtUic Include="PushButtonWithMenuDemo.ui" />
   </ItemGroup>
   <ItemGroup>
@@ -107,6 +114,18 @@
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="LiveButton.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <QtMoc Include="LiveMoreButton.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <QtMoc Include="HostMicStatusWidget.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <QtMoc Include="LiveFloatWindow.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <QtMoc Include="FloatWindowTopLayer.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Condition="Exists('$(QtMsBuild)\qt.targets')">

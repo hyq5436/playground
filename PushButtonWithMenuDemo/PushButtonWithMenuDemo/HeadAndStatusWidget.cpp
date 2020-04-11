@@ -18,7 +18,8 @@ void HeadAndStatusWidget::paintEvent(QPaintEvent* event) {
 
     painter.setRenderHints(QPainter::Antialiasing | QPainter::TextAntialiasing |
                            QPainter::SmoothPixmapTransform);
-    painter.drawPixmap(this->rect(), CommonFun::getRoundedImage("Resources/head.png", 200));
+    painter.drawPixmap(this->rect(), CommonFun::getRoundedCornerImage(
+                                         "Resources/head.png", 200));
 
     QRect statusBackgroundRect(width() * 2 / 3 - 10, width() * 2 / 3 - 10 , width() / 3 + 10,
                      width() / 3 + 10);

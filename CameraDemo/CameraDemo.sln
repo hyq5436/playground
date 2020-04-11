@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.1000
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CameraDemo", "CameraDemo\CameraDemo.vcxproj", "{9A48A916-D10E-4647-A1EA-2B870D11DB3A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9A48A916-D10E-4647-A1EA-2B870D11DB3A}.Debug|x86.ActiveCfg = Debug|Win32
+		{9A48A916-D10E-4647-A1EA-2B870D11DB3A}.Debug|x86.Build.0 = Debug|Win32
+		{9A48A916-D10E-4647-A1EA-2B870D11DB3A}.Release|x86.ActiveCfg = Release|Win32
+		{9A48A916-D10E-4647-A1EA-2B870D11DB3A}.Release|x86.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		Qt5Version = 5_12_7_msvc2017
+		SolutionGuid = {186AB81F-06A8-44B7-BADE-90E57052B2E1}
+	EndGlobalSection
+EndGlobal

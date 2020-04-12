@@ -8,8 +8,12 @@
 #include <QDesktopWidget>
 #include <QMouseEvent>
 
-LiveFloatWindow::LiveFloatWindow(QWidget *parent)
-    : QFrame(parent), m_pControlLayer(nullptr) {
+LiveFloatWindow::LiveFloatWindow(QWidget* parent)
+    : QFrame(parent),
+      m_pControlLayer(nullptr),
+      m_pCamera(nullptr),
+      m_strCameraName(QString("")),
+      m_bEnableCamera(false) {
     ui.setupUi(this);
     setWindowFlags(Qt::Tool | Qt::FramelessWindowHint);
 
@@ -21,30 +25,14 @@ LiveFloatWindow::LiveFloatWindow(QWidget *parent)
     connect(m_pControlLayer, &FloatWindowTopLayer::signal_CloseWindow,
             [this]() {
                 this->close();
-        this->deleteLater();
-    });
+                this->deleteLater();
+            });
 
     ui.cameraWidget->setAspectRatioMode(Qt::KeepAspectRatioByExpanding);
-    m_pCamera = new QCamera(this);
-    m_pCamera->setCaptureMode(QCamera::CaptureVideo);
-    m_pCamera->setViewfinder(ui.cameraWidget);
-    ui.stackedWidget->setCurrentIndex(1);
-    m_pCamera->start();
-    connect(ui.stackedWidget, &QStackedWidget::currentChanged, this,
-            [this](int index) {
-        // 头像
-        if (index == 0) {
-            m_pCamera->stop();
-        }
-        else if (index == 1) {
-            m_pCamera->start();
-        }
-    });
+    ui.stackedWidget->setCurrentIndex(0);
 }
 
-LiveFloatWindow::~LiveFloatWindow()
-{
-}
+LiveFloatWindow::~LiveFloatWindow() {}
 
 void LiveFloatWindow::setPhoto(QPixmap image) {
     ui.lblPhoto->setPixmap(image);
@@ -60,7 +48,54 @@ void LiveFloatWindow::resetControlPos() {
     m_pControlLayer->move(pos());
 }
 
-void LiveFloatWindow::setMicStatus(bool bMute) {}
+void LiveFloatWindow::setHostName(const QString& name) {
+    m_pControlLayer->setHostName(name);
+}
+
+void LiveFloatWindow::setMicStatus(bool bMute) {
+    m_pControlLayer->setMicStatus(bMute);
+}
+
+void LiveFloatWindow::setCameraName(const QString& name) {
+    if (name == m_strCameraName || name.isEmpty()) {
+        return;
+    }
+    m_strCameraName = name;
+
+    const QList<QCameraInfo> cameras = QCameraInfo::availableCameras();
+    for (const QCameraInfo& cameraInfo : cameras) {
+        if (cameraInfo.description() == m_strCameraName) {
+            if (m_pCamera != nullptr)
+            {
+                m_pCamera->stop();
+                m_pCamera->deleteLater();
+            }
+            m_pCamera = new QCamera(cameraInfo, this);
+            m_pCamera->setCaptureMode(QCamera::CaptureVideo);
+            m_pCamera->setViewfinder(ui.cameraWidget);
+        }
+    }
+
+    if (m_bEnableCamera) {
+        enableCamera(true);
+    }
+}
+
+void LiveFloatWindow::enableCamera(bool bEnable) {
+    if (bEnable == m_bEnableCamera) {
+        return;
+    }
+    m_bEnableCamera = bEnable;
+    if (m_bEnableCamera)
+    {
+        m_pCamera->start();
+        ui.stackedWidget->setCurrentIndex(1);
+    } else {
+        m_pCamera->stop();
+        ui.stackedWidget->setCurrentIndex(0);
+    }
+}
+
 void LiveFloatWindow::mousePressEvent(QMouseEvent* mouseEvent) {
     QFrame::mousePressEvent(mouseEvent);
 
@@ -82,8 +117,10 @@ void LiveFloatWindow::mouseMoveEvent(QMouseEvent* mouseEvent) {
     if (!m_startDragPoint.isNull() && bLeftButtonClicked) {
         QPoint movePos = mouseEvent->globalPos() - m_startDragPoint;
         if (!movePos.isNull()) {
-            if (movePos.y() > QApplication::desktop()->availableGeometry().height() - 10) {
-                movePos.setY( QApplication::desktop()->availableGeometry().height() - 10);
+            if (movePos.y() >
+                QApplication::desktop()->availableGeometry().height() - 10) {
+                movePos.setY(
+                    QApplication::desktop()->availableGeometry().height() - 10);
             }
             move(movePos);
             resetControlPos();

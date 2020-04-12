@@ -39,9 +39,23 @@ FloatWindowTopLayer::FloatWindowTopLayer(QWidget* parent) : QFrame(parent) {
     ui.btnClose->setFont(iconFont);
     ui.btnClose->setText(QChar(0xF62C));
 
-    iconFont.setPixelSize(18);
-    ui.hostMicStatus->setHostName("老婆老伯");
-    ui.hostMicStatus->setIcon(QChar(0xf64d));
+    setHostName("胡寅秋");
+    setMicStatus(false);
+}
+
+void FloatWindowTopLayer::setMicStatus(bool bMute) {
+    if (bMute)
+    {
+        ui.hostMicStatus->setIcon(QChar(0xe64c));
+    } 
+    else
+    {
+        ui.hostMicStatus->setIcon(QChar(0xf64d));
+    }
+}
+
+void FloatWindowTopLayer::setHostName(const QString& name) {
+    ui.hostMicStatus->setHostName(name);
 }
 
 FloatWindowTopLayer::~FloatWindowTopLayer() {}

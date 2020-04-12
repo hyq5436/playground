@@ -16,6 +16,10 @@ public:
 protected:
     void resizeEvent(QResizeEvent* event);
 
+public slots:
+    void setMicStatus(bool bMute);
+    void setHostName(const QString& name);
+
 signals:
     void signal_CloseWindow();
 

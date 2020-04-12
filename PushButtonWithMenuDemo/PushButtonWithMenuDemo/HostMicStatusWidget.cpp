@@ -52,7 +52,7 @@ HostMicStatusWidget::HostMicStatusWidget(QWidget *parent)
                 "color: #FFFFFF;"
                 "};"));
     QFont iconFont = CommonFun::getIconFont();
-    iconFont.setPixelSize(14);
+    iconFont.setPixelSize(16);
     ui.lblMicStatus->setFont(iconFont);
 }
 

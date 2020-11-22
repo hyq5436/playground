@@ -9,5 +9,5 @@ TEST(TestDemo, Demo)
 TEST(TestDemo, Error)
 {
     int a = 2;
-    EXPECT_EQ(a == 2, false);
+    EXPECT_EQ(a == 2, true);
 }

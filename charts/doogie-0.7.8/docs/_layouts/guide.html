@@ -1,0 +1,45 @@
+---
+layout: page
+---
+
+<!-- Guide-specific CSS -->
+<style type="text/css">
+  /* Don't let the images stretch the width */
+  img {
+    max-width: 100%;
+    max-height: 100%;
+  }
+
+  /* Move code blocks out a bit */
+  pre {
+    margin-left: 20px;
+  }
+
+  /* Super-simple hiding menu on mobile */
+  @media screen and (max-width: 500px) {
+    .guide-menu {
+      display: none;
+    }
+
+    #guide-menu-checkbox::after {
+      content: "TOC >>";
+      white-space: nowrap;
+    }
+
+    #guide-menu-checkbox:checked::after {
+      content: "<< TOC";
+      white-space: nowrap;
+    }
+
+    #guide-menu-checkbox:checked ~ .guide-menu {
+      display: block;
+    }
+  }
+</style>
+<input id="guide-menu-checkbox" class="mobile-only" type="checkbox" style="width: 0px; cursor: pointer; font-weight: bold;">
+<div class="guide-menu">
+  {% include guide-toc.html %}
+</div>
+<div>
+  {{content}}
+</div>

@@ -1,0 +1,9 @@
+<library path="lib/libchart3d">
+  <class name="chart3d/chart3d"
+         type="chart3d_space::chart3d"
+         base_class_type="rviz::Panel">
+    <description>
+      Display 3d chart
+    </description>
+  </class>
+</library>

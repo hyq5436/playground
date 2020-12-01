@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html style="height: 100%">
+	<head>
+		  <meta charset="utf-8">
+		    <title>RGB 颜色空间可视化</title>
+	</head>
+	<body style="height: 100%; margin: 0">
+		<div id="container" style="height: 100%"></div>
+		<script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/echarts.min.js"></script>
+		<script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts-gl/echarts-gl.min.js"></script>
+	<script type="text/javascript">
+		  // 获取dom
+		  let dom = document.getElementById("container");
+  // 初始化
+  let myChart = echarts.init(dom);
+
+  // 渲染的点集
+  let points = []
+  // 颜色间隔步长, 点集越大, 会卡...
+  let step = 8
+
+  // 颜色最大值
+  let limit = 256
+  for (let r = 0; r < limit; r += step) {
+	      for (let g = 0; g < limit; g += step) {
+		            for (let b = 0; b < limit; b += step) {
+				            points.push(
+						              // 一个点由五个数据组成,前三个是x,y,z坐标,最后一个是鼠标悬浮时的提示
+						              // 第4个是一个需要做另外配置才能生效的颜色相关值, 这里我们用不到
+						              [r, g, b, null, `${r}-${g}-${b}`]
+						            )
+				          }
+		          }
+	    }
+  let option = {
+	      grid3D: {},
+	      // 对坐标轴重新命名
+	      xAxis3D: {
+		            name: "R"
+		          },
+	      yAxis3D: {
+		            name: "G"
+		          },
+	      zAxis3D: {
+		            name: "B"
+		          },
+	      series: [
+		            {
+				            type: 'scatter3D',
+				            data: points,
+				            // 我们颜色的渲染使用的是函数式,对每个点, 返回改点对应的rgb颜色值
+				            color: ({data}) => {
+						              console.log(data)
+						              let [r, g, b] = data
+						              return `rgb(${r},${g},${b})`
+						            }
+				          }
+		          ]
+	    };
+
+  myChart.setOption(option, true);
+	</script>
+	</body>
+</html>

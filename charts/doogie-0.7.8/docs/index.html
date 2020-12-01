@@ -1,0 +1,208 @@
+---
+layout: default
+---
+
+<!-- Styles just for this page -->
+<style type="text/css">
+  .dos-button {
+    background: #00A8A8;
+    margin-right: 10px;
+    padding: 10px;
+    display: inline-block;
+    height: 20px;
+    box-shadow: 10px 10px rgba(0, 0, 0, 0.5);
+    margin-top: 10px;
+    vertical-align: center;
+    color: white;
+    font: bold 20px courier new;
+    text-decoration: none;
+  }
+  .feature-item {
+    display: flex;
+  }
+  @media screen and (max-width:990px) {
+    .feature-item {
+      flex-wrap: wrap;
+    }
+    .feature-item > img {
+      padding-bottom: 10px;
+    }
+  }
+  @media screen and (min-width:990px) {
+    .feature-item > img {
+      padding-right: 30px;
+    }
+  }
+</style>
+
+<!-- Top blue hero -->
+<div style="background-color: blue; max-width: 1000px; margin: auto; padding-bottom: 10px;">
+  <div style="text-align: center; font: bold 60px courier; color: white;">DOOGIE</div>
+  <div style="text-align: center; font: 30px courier new; color: white; margin-top: -10px">
+    A Power Browser
+  </div>
+  <div style="text-align: center; padding-bottom: 20px;">
+    <a class="dos-button" href="guide">
+      User Guide
+    </a>
+    <a class="dos-button" href="https://github.com/cretz/doogie">
+      GitHub
+    </a>
+    <a class="dos-button" href="#features">
+      Features
+    </a>
+  </div>
+  <div class="desktop-only" style="text-align: center; color: white; border: 4px double white; width: 500px; text-align: center; margin: auto;">
+    <div style="transform: translateY(-80%); background: blue; display: inline-block; font-family: monospace; padding: 0px 5px;">
+      Download Latest Alpha Release
+    </div>
+    <div style="display: flex; justify-content: center;">
+      <div style="padding: 10px 20px;">
+        <a href="https://github.com/cretz/doogie/releases/latest" style="text-decoration: none; color: white;">
+          <img src="img/fontawesome-windows-white.png"><br />Windows
+        </a>
+      </div>
+      <div style="padding: 10px 20px;">
+        <a href="https://github.com/cretz/doogie/releases/latest" style="text-decoration: none; color: white;">
+          <img src="img/fontawesome-linux-white.png"><br />Linux<br />(x11)
+        </a>
+      </div>
+      <div title="Not supported yet" style="padding: 10px 20px; color: gray; cursor: not-allowed;">
+        <img src="img/fontawesome-apple-gray.png"><br />macOS<br />
+        (<a href="https://github.com/cretz/doogie/issues/19" style="cursor: auto; color: gray;">not yet</a>)
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Warning about alpha quality -->
+<div style="max-width: 990px; margin: auto; background-color: red; padding: 5px">
+  <div style="border: 4px double white; text-align: center;">
+    <div style="transform: translateY(-70%); background: white; display: inline-block; font: bold 1em monospace; padding: 2px 5px; color: red;">
+      Warning
+    </div>
+    <div style="color: white; font: bold 1em monospace; padding-bottom: 20px;">
+      This is alpha software and has not been tested for security or stability. Use at your own risk.
+    </div>
+  </div>
+</div>
+
+<!-- Overview, screenshot, features, etc -->
+<div style="max-width: 1000px; margin: auto;">
+
+  <h2>Overview</h2>
+  <p>
+    Doogie is a <a href="https://www.chromium.org">Chromium</a>-based web browser with tree-style pages. It is built using <a href="https://bitbucket.org/chromiumembedded/cef">CEF</a> and <a href="https://www.qt.io/">Qt</a>. The primary goal is to make a browser that functions more like an <a href="https://en.wikipedia.org/wiki/Integrated_development_environment">IDE</a>. In an era where web browsers continually remove or hide UI, Doogie aims to make it more visible and allow easier cross-contextual browsing. Read <a href="guide">the user guide</a> or the <a href="guide/faq">FAQ</a>.
+  </p>
+
+  <h2>Screenshot</h2>
+  <p>
+    <a href="img/screenshot-main.png">
+      <img src="img/screenshot-main.png" style="max-width:100%; max-height:100%;">
+    </a>
+  </p>
+
+  <h2 id="features">Features</h2>
+  <h4>Page Tree</h4>
+  <div class="feature-item">
+    <img src="img/screenshot-page-tree-simple.png" style="height: 100%;">
+    <div>
+      <div>
+        The page tree allows easy navigation of pages via a tree view. It has features for opening child pages (foreground or background), suspension, fast closing gestures, etc. In addition to trees, pages can be organized in workspaces and bubbles.
+      </div>
+      <br />
+      <div>
+        Read more about the <a href="guide/page-tree">Page Tree</a>
+      </div>
+    </div>
+  </div>
+  <hr />
+  <h4>Bubbles</h4>
+  <div class="feature-item">
+    <img src="img/screenshot-bubbles-simple.png" style="height: 100%;">
+    <div>
+      <div>
+        A "bubble" is a context a page runs within. Bubbles can have their own settings, including cache path, which allows you to do things like create an "incognito" bubble, or create separate bubbles with complete separate cookie sets to login to the same site as two different users side-by-side. Bubbles are identified by customizable icons and pages can easily be switched from one bubble to another.
+      </div>
+      <br />
+      <div>
+        Read more about <a href="guide/bubble">Bubbles</a>
+      </div>
+    </div>
+  </div>
+  <hr />
+  <h4>Workspaces</h4>
+  <div class="feature-item">
+    <img src="img/screenshot-workspaces-simple.png" style="height: 100%;">
+    <div>
+      <div>
+        A "workspace" is a named hierarchy of pages. They can be created, closed, deleted, moved around, and more. A workspace is a good way to quickly reopen a set of pages in a preferred hierarchy.
+      </div>
+      <br />
+      <div>
+        Read more about <a href="guide/page-tree#workspaces">Workspaces</a>
+      </div>
+    </div>
+  </div>
+  <hr />
+  <h4>Autocomplete and Search</h4>
+  <div class="feature-item">
+    <img src="img/screenshot-autocomplete-simple.png" style="height: 100%;">
+    <div>
+      <div>
+        The address bar offers autocomplete suggestions based on previously opened pages. Also, <a href="https://duckduckgo.com/">DuckDuckGo</a> is integrated where it will always appear as an option to search. Want to search for Google instead? Use DuckDuckGo's <a href="https://duckduckgo.com/bang">!bang support</a>, and type "!g something" or "something !g" and using the search will perform a Google search. In fact, DuckDuckGo is the default autocomplete option any time a bang-form of search is typed.
+      </div>
+      <br />
+      <div>
+        Read more about the <a href="guide/browser#address-bar">Address Bar</a>
+      </div>
+    </div>
+  </div>
+  <hr />
+  <h4>Request Blocker</h4>
+  <div class="feature-item">
+    <img src="img/screenshot-request-blocker-simple.png" style="height: 100%; max-width: 100%">
+    <div>
+      <div>
+        Doogie supports the <a href="https://adblockplus.org/filters">Adblock Plus filter syntax</a> for URLs. This means you can add <a href="https://filterlists.com/">filter lists</a> and Doogie will prevent the URL from being loaded. 
+      </div>
+      <br />
+      <div>
+        Read more about the <a href="guide/general#request-blocker">Request Blocker</a>
+      </div>
+    </div>
+  </div>
+  <hr />
+  <h4>Page Suspension</h4>
+  <div class="feature-item">
+    <img src="img/screenshot-suspended-simple.png" style="height: 100%;">
+    <div>
+      <div>
+        Pages in the tree can be suspended. This frees the resources the page is using and marks it as disabled. This can be helpful when you have many pages in a hierarchy but do not want all of them open and using resources. 
+      </div>
+      <br />
+      <div>
+        Read more about <a href="guide/page-tree#page-suspension">Page Suspension</a>
+      </div>
+    </div>
+  </div>
+  <h2>Not Yet Implemented</h2>
+  <p>
+    Many features are either not yet implemented or will never be implemented. See the <a href="https://github.com/cretz/doogie/issues">GitHub issues</a>. Some of the major ones are:
+    <ul>
+      <li><a href="https://github.com/cretz/doogie/issues/19">macOS support</a></li>
+      <li>HTTP <a href="https://github.com/cretz/doogie/issues/26">basic</a> and <a href="https://github.com/cretz/doogie/issues/27">client certificate</a> authentication</li>
+      <li><a href="https://github.com/cretz/doogie/issues/20">Automatic updates</a></li>
+      <li><a href="https://github.com/cretz/doogie/issues/14">Cosmetic element hiding based on blocker rules</a></li>
+      <li><a href="https://github.com/cretz/doogie/issues/7">Flash</a></li>
+      <li><a href="https://github.com/cretz/doogie/issues/1">Form resubmission</a></li>
+      <li><a href="https://github.com/cretz/doogie/issues/5">Microphones and webcams</a></li>
+      <li><a href="https://github.com/cretz/doogie/issues/4">Geolocation</a></li>
+      <li><a href="https://github.com/cretz/doogie/issues/3">Notifications</a></li>
+      <li><a href="https://github.com/cretz/doogie/issues/17">Multiple windows</a></li>
+      <li><a href="https://github.com/cretz/doogie/issues/34">Plugins</a></li>
+      <li><a href="https://github.com/cretz/doogie/issues/35">Extensions</a></li>
+    </ul>
+    ... and much much more. Most of these have to be complete before "beta". Contributions welcome.
+  </p>
+</div>

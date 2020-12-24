@@ -61,3 +61,23 @@ TEST(Timer, AsyncWait) {
     t.async_wait(&print);
     io.run();
 }
+
+void print_bind(const asio::error_code& , asio::steady_timer& t, int& count)
+{
+  if (count < 5)
+  {
+    std::cout << count << std::endl;
+    ++count;
+    t.expires_at(t.expiry() + std::chrono::seconds(1));
+    t.async_wait(std::bind(&print_bind, std::placeholders::_1, std::ref(t), std::ref(count)));
+  }
+
+}
+
+TEST(Timer, AsyncWaitBindParam) {
+    asio::io_context io;
+    asio::steady_timer t(io, asio::chrono::seconds(1));
+    int count = 0;
+    t.async_wait(std::bind(&print_bind, std::placeholders::_1, std::ref(t), std::ref(count)));
+    io.run();
+}

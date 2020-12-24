@@ -3,6 +3,7 @@ cmake_minimum_required(VERSION 3.10)
 enable_testing()
 find_package(GTest REQUIRED)
 include_directories(${GTEST_INCLUDE_DIRS})
+include_directories(asio-1.16.1/include)
 
 find_package(Threads REQUIRED)
 

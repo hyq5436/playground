@@ -81,3 +81,10 @@ TEST(Timer, AsyncWaitBindParam) {
     t.async_wait(std::bind(&print_bind, std::placeholders::_1, std::ref(t), std::ref(count)));
     io.run();
 }
+
+#include "printer.h"
+TEST(Timer, AsyncWaitBindClassMemeber) {
+    asio::io_context io;
+    printer p(io);
+    io.run();
+}

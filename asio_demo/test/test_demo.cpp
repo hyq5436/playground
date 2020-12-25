@@ -50,8 +50,7 @@ TEST(Timer, Wait) {
     std::cout << "sync wait" << std::endl;
 }
 
-void print(const asio::error_code& )
-{
+void print(const asio::error_code&) {
     std::cout << "async printf" << std::endl;
 }
 
@@ -62,23 +61,22 @@ TEST(Timer, AsyncWait) {
     io.run();
 }
 
-void print_bind(const asio::error_code& , asio::steady_timer& t, int& count)
-{
-  if (count < 5)
-  {
-    std::cout << count << std::endl;
-    ++count;
-    t.expires_at(t.expiry() + std::chrono::seconds(1));
-    t.async_wait(std::bind(&print_bind, std::placeholders::_1, std::ref(t), std::ref(count)));
-  }
-
+void print_bind(const asio::error_code&, asio::steady_timer& t, int& count) {
+    if (count < 5) {
+        std::cout << count << std::endl;
+        ++count;
+        t.expires_at(t.expiry() + std::chrono::seconds(1));
+        t.async_wait(std::bind(&print_bind, std::placeholders::_1, std::ref(t),
+                               std::ref(count)));
+    }
 }
 
 TEST(Timer, AsyncWaitBindParam) {
     asio::io_context io;
     asio::steady_timer t(io, asio::chrono::seconds(1));
     int count = 0;
-    t.async_wait(std::bind(&print_bind, std::placeholders::_1, std::ref(t), std::ref(count)));
+    t.async_wait(std::bind(&print_bind, std::placeholders::_1, std::ref(t),
+                           std::ref(count)));
     io.run();
 }
 
@@ -93,6 +91,28 @@ TEST(Timer, AsyncWaitBindClassMemeber) {
 TEST(Timer, DoubleTimer) {
     asio::io_context io;
     printer2 p(io);
-    asio::thread t([&io](){io.run();});
+    asio::thread t([&io]() { io.run(); });
     t.join();
+}
+
+TEST(TCP, SyncDaytimeClient) {
+    using asio::ip::tcp;
+    asio::io_context io;
+
+    std::array<char, 128> buf;
+    tcp::resolver resolver(io);
+    auto endpoints = resolver.resolve("time-a-g.nist.gov", "daytime");
+    tcp::socket socket(io);
+    asio::connect(socket, endpoints);
+    do {
+        asio::error_code error;
+
+        size_t len = socket.read_some(asio::buffer(buf), error);
+        if (error == asio::error::eof)
+            break;  // Connection closed cleanly by peer.
+        else if (error)
+            throw asio::system_error(error);  // Some other error.
+
+        std::cout.write(buf.data(), len);
+    } while (true);
 }

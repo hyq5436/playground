@@ -20,7 +20,10 @@ SET(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} --coverage -lgcov")
 target_link_libraries(tests ${GTEST_BOTH_LIBRARIES} ${CMAKE_THREAD_LIBS_INIT})
 gtest_discover_tests(tests)
 
+
+#[[ run test auto
 add_custom_command(TARGET tests
                    POST_BUILD
                    COMMAND ctest -C $<CONFIGURATION> --output-on-failure
 		   COMMAND echo "Hello world!")
+]]

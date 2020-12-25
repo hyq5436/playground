@@ -88,3 +88,11 @@ TEST(Timer, AsyncWaitBindClassMemeber) {
     printer p(io);
     io.run();
 }
+
+#include "printer2.h"
+TEST(Timer, DoubleTimer) {
+    asio::io_context io;
+    printer2 p(io);
+    asio::thread t([&io](){io.run();});
+    t.join();
+}

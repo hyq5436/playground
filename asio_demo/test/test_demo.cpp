@@ -102,6 +102,7 @@ TEST(TCP, SyncDaytimeClient) {
     std::array<char, 128> buf;
     tcp::resolver resolver(io);
     auto endpoints = resolver.resolve("time-a-g.nist.gov", "daytime");
+    //auto endpoints = resolver.resolve("127.0.0.1", "daytime");
     tcp::socket socket(io);
     asio::connect(socket, endpoints);
     do {
@@ -114,5 +115,30 @@ TEST(TCP, SyncDaytimeClient) {
             throw asio::system_error(error);  // Some other error.
 
         std::cout.write(buf.data(), len);
+    } while (true);
+}
+
+#include <ctime>
+std::string make_daytime_string()
+{
+    using namespace std;
+    time_t now = time(0);
+    return ctime(&now);
+}
+
+TEST(TCP, SyncDaytimeServer) {
+    GTEST_SKIP();
+    using asio::ip::tcp;
+    asio::io_context io;
+
+    tcp::acceptor acceptor(io, tcp::endpoint(tcp::v4(), 13));
+    do {
+        tcp::socket socket(io);
+        acceptor.accept(socket);
+
+        std::string message = make_daytime_string();
+
+        asio::error_code error;
+        asio::write(socket, asio::buffer(message), error);
     } while (true);
 }

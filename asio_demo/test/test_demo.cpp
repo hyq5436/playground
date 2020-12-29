@@ -95,14 +95,14 @@ TEST(Timer, DoubleTimer) {
     t.join();
 }
 
-TEST(TCP, SyncDaytimeClient) {
+TEST(TCP, DISABLED_SyncDaytimeClient) {
     using asio::ip::tcp;
     asio::io_context io;
 
     std::array<char, 128> buf;
     tcp::resolver resolver(io);
-    auto endpoints = resolver.resolve("time-a-g.nist.gov", "daytime");
-    //auto endpoints = resolver.resolve("127.0.0.1", "daytime");
+    //auto endpoints = resolver.resolve("time-a-g.nist.gov", "daytime");
+    auto endpoints = resolver.resolve("127.0.0.1", "daytime");
     tcp::socket socket(io);
     asio::connect(socket, endpoints);
     do {
@@ -126,8 +126,7 @@ std::string make_daytime_string()
     return ctime(&now);
 }
 
-TEST(TCP, SyncDaytimeServer) {
-    GTEST_SKIP();
+TEST(TCP, DISABLED_SyncDaytimeServer) {
     using asio::ip::tcp;
     asio::io_context io;
 
@@ -141,4 +140,12 @@ TEST(TCP, SyncDaytimeServer) {
         asio::error_code error;
         asio::write(socket, asio::buffer(message), error);
     } while (true);
+}
+
+#include "tcp_server.h"
+TEST(TCP, DISABLED_AsyncDaytimeServer) {
+    using asio::ip::tcp;
+    asio::io_context ioc;
+    tcp_server server(ioc);
+    ioc.run();
 }

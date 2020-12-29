@@ -149,3 +149,22 @@ TEST(TCP, DISABLED_AsyncDaytimeServer) {
     tcp_server server(ioc);
     ioc.run();
 }
+
+TEST(UDP, DISABLED_SyncDaytimeClient) {
+    using asio::ip::udp;
+    asio::io_context ioc;
+    udp::resolver resolver(ioc);
+    udp::endpoint receiver_endpoint = *resolver.resolve(udp::v4(), "127.0.0.1", "daytime").begin();
+    // udp::endpoint receiver_endpoint = *resolver.resolve(udp::v4(), "time-a-g.nist.gov", "daytime").begin();
+    udp::socket socket(ioc);
+    socket.open(udp::v4());
+
+    std::array<char, 1> send_buf = {{0}};
+    socket.send_to(asio::buffer(send_buf), receiver_endpoint);
+
+    std::array<char, 128> recv_buf;
+    udp::endpoint sender_endpoint;
+    size_t len = socket.receive_from(asio::buffer(recv_buf), sender_endpoint);
+
+    std::cout.write(recv_buf.data(), len);
+}

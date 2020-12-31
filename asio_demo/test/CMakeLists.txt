@@ -2,24 +2,40 @@ cmake_minimum_required(VERSION 3.10)
 
 enable_testing()
 find_package(GTest REQUIRED)
-include_directories(${GTEST_INCLUDE_DIRS})
-include_directories(asio-1.16.1/include)
 
+# thread
 find_package(Threads REQUIRED)
 
+# cpp options
+set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_CXX_STANDARD_REQUIRED True)
+
+# gcc feature
+set(GCC_UNDEFINED_FLAG "-fsanitize=undefined")
+set(CMAKE_CXX_FLAGS_COVERAGE "-g;-O0;--coverage")
+
+# set target
+set(TEST_EXECUTOR tests)
 aux_source_directory(. TEST_FILES)
-add_executable(tests ${TEST_FILES})
+add_executable(${TEST_EXECUTOR} ${TEST_FILES})
 
-set(CMAKE_CXX_FLAGS_COVERAGE "-g -O0 --coverage")
+# include directories
+target_include_directories(${TEST_EXECUTOR}
+    PUBLIC
+        ${GTEST_INCLUDE_DIRS}
+        ${CMAKE_SOURCE_DIR}/asio-1.16.1/include)
 
-SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${CMAKE_CXX_FLAGS_COVERAGE}")
-SET(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} ${CMAKE_CXX_FLAGS_COVERAGE}")
-SET(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} --coverage -lgcov")
+# compile options
+target_compile_options(${TEST_EXECUTOR} PUBLIC ${GCC_UNDEFINED_FLAG} ${CMAKE_CXX_FLAGS_COVERAGE})
 
+# link options
+target_link_options(${TEST_EXECUTOR} PUBLIC ${GCC_UNDEFINED_FLAG} --coverage -lgcov)
 
-target_link_libraries(tests ${GTEST_BOTH_LIBRARIES} ${CMAKE_THREAD_LIBS_INIT})
-gtest_discover_tests(tests)
+# link dependency
+target_link_libraries(${TEST_EXECUTOR} ${GTEST_BOTH_LIBRARIES} ${CMAKE_THREAD_LIBS_INIT})
 
+# gtest
+gtest_discover_tests(${TEST_EXECUTOR})
 
 #[[ run test auto
 add_custom_command(TARGET tests

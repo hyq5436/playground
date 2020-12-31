@@ -168,3 +168,25 @@ TEST(UDP, DISABLED_SyncDaytimeClient) {
 
     std::cout.write(recv_buf.data(), len);
 }
+
+TEST(UDP, DISABLED_SyncDaytimeServer) {
+    using asio::ip::udp;
+    asio::io_context ioc;
+    udp::socket socket(ioc, udp::endpoint(udp::v4(), 13));
+
+    for(;;)
+    {
+        std::array<char, 1> recv_buf;
+        udp::endpoint remote_endpoint;
+        socket.receive_from(asio::buffer(recv_buf), remote_endpoint);
+
+        std::string message = make_daytime_string();
+        socket.send_to(asio::buffer(message), remote_endpoint, 0);
+    }
+}
+
+TEST(UB, IntOverflow) {
+    int i = INT_MIN;
+    int j = -i;
+    EXPECT_GT(i < j, true);
+}

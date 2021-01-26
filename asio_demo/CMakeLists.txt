@@ -19,7 +19,11 @@ set(TARGET_NAME asio_demo)
 add_executable(${TARGET_NAME} src/asio_demo.cpp)
 
 # include directories
-target_include_directories(${TARGET_NAME} PUBLIC asio-1.16.1/include)
+target_include_directories(${TARGET_NAME}
+    PUBLIC
+        ${GTEST_INCLUDE_DIRS}
+        ${PROJECT_SOURCE_DIR}/include
+        ${PROJECT_SOURCE_DIR}/asio-1.16.1/include)
 
 # preprocessor
 target_compile_definitions(${TARGET_NAME} PUBLIC ASIO_STANDALONE)

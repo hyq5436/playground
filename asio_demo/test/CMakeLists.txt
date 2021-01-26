@@ -17,12 +17,17 @@ set(CMAKE_CXX_FLAGS_COVERAGE "-g;-O0;--coverage")
 # set target
 set(TEST_EXECUTOR tests)
 aux_source_directory(. TEST_FILES)
+set(HEADER_FILES ${CMAKE_CURRENT_SOURCE_DIR}/printer.h
+                 ${CMAKE_CURRENT_SOURCE_DIR}/printer2.h
+                 ${CMAKE_CURRENT_SOURCE_DIR}/server.h
+                 ${CMAKE_CURRENT_SOURCE_DIR}/tcp_server.h)
 add_executable(${TEST_EXECUTOR} ${TEST_FILES})
 
 # include directories
 target_include_directories(${TEST_EXECUTOR}
     PUBLIC
         ${GTEST_INCLUDE_DIRS}
+        ${PROJECT_SOURCE_DIR}/include
         ${CMAKE_SOURCE_DIR}/asio-1.16.1/include)
 
 # compile options

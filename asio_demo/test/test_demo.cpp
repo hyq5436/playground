@@ -1,5 +1,6 @@
 #include <asio.hpp>
 #include "gtest/gtest.h"
+#include "utils.h"
 
 TEST(TestDemo, Demo) {
     int a = 2;
@@ -118,14 +119,6 @@ TEST(TCP, DISABLED_SyncDaytimeClient) {
     } while (true);
 }
 
-#include <ctime>
-std::string make_daytime_string()
-{
-    using namespace std;
-    time_t now = time(0);
-    return ctime(&now);
-}
-
 TEST(TCP, DISABLED_SyncDaytimeServer) {
     using asio::ip::tcp;
     asio::io_context io;
@@ -189,4 +182,11 @@ TEST(UB, IntOverflow) {
     int i = INT_MIN;
     int j = -i;
     EXPECT_GT(i < j, true);
+}
+
+#include "server.h"
+TEST(UDP, DISABLED_AsyncUdpDaytimeServer) {
+    asio::io_context io_context;
+    udp_server server(io_context);
+    io_context.run();
 }

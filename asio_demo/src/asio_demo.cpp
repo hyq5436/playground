@@ -1,5 +1,7 @@
 #include <iostream>
+#include <memory>
 #include <asio.hpp>
+#include "server.h"
 
 void print(const asio::error_code& )
 {
@@ -8,11 +10,9 @@ void print(const asio::error_code& )
 
 int main(int argc, char* argv[])
 {
-    asio::io_context io;
-    asio::steady_timer t(io, asio::chrono::seconds(5));
-    t.async_wait(&print);
-
-    io.run();
+    asio::io_context io_context;
+    udp_server server(io_context);
+    io_context.run();
 
     return 0;
 }
